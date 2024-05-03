@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prac6p-deployment
+  labels:
+    app: prac6p
+spec:
+  selector:
+    matchLabels:
+      app: prac6p
+  template:
+    metadata:
+      labels:
+        app: prac6p
+    spec:
+      containers:
+      - name: prac6p
+        image: spiky14/sit-737-prac6p:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
